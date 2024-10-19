@@ -45,11 +45,11 @@ int main()
                     printf("Result: %.2f / %.2f = %.2f\n", num1, num2, result);
                 } else 
                 {
-                    printf("\nError: Division by zero is not allowed");
+                    printf("\nDivision by zero is not there");
                 }
                 break;
             default:
-                printf("\nInvalid choice! Please select a valid option.");
+                printf("\nInvalid choice!");
         }
 
         printf("\n");
