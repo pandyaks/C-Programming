@@ -1,5 +1,4 @@
 #include <stdio.h>
-
 int main()
 {
     int matrix[100][100];
@@ -10,7 +9,6 @@ int main()
      printf("\n enter the COLS  = ");
     scanf("%d",& COLS);
 
- 
     printf("\nEnter the elements of the matrix = ");
     for (i = 0; i < ROWS; i++) 
     {
@@ -21,10 +19,8 @@ int main()
         }
     }
 
+ max = matrix[0][0];
 
-    max = matrix[0][0];
-
-    
     for (i = 0; i < ROWS; i++)
      {
         for (j = 0; j < COLS; j++) 
@@ -36,7 +32,7 @@ int main()
         }
     }
 
-    printf("The maximum element in the matrix is: %d\n", max);
+    printf("\nThe maximum element in the matrix is: %d", max);
 
     return 0;
 }
