@@ -1,3 +1,4 @@
+// WAP to find reverse of string using recursion
 #include <stdio.h>
 #include <string.h>
 
@@ -27,7 +28,7 @@ int main()
 
     reverseString(str, 0, length - 1);
 
-    printf("Reversed string: %s\n", str);
+    printf("\nReversed string: %s", str);
 
     return 0;
 }
