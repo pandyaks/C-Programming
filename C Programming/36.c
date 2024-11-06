@@ -1,101 +1,293 @@
-#include <stdio.h>
-void sortAscending(int arr[], int size) 
+#include<stdio.h>
+void main()
 {
-    for (int i = 0; i < size - 1; i++) 
-    {
-        for (int j = 0; j < size - i - 1; j++) 
-        {
-            if (arr[j] > arr[j + 1]) 
-            {
-                int temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
-            }
-        }
-    }
-}
-
-void sortDescending(int arr[], int size) 
-{
-    for (int i = 0; i < size - 1; i++)
-    {
-        for (int j = 0; j < size - i - 1; j++) 
-        {
-            if (arr[j] < arr[j + 1]) 
-            {
-                int temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
-            }
-        }
-    }
-}
-
-int main() 
-{
-    int size1, size2;
-    printf("Enter size of the first array: ");
-    scanf("%d", &size1);
-    int arr1[size1];
-
-    printf("Enter elements of the first array:\n");
-    for (int i = 0; i < size1; i++) 
-    {
-        scanf("%d", &arr1[i]);
-    }
-
-    printf("Enter size of the second array: ");
-    scanf("%d", &size2);
-    int arr2[size2];
-
-    printf("Enter elements of the second array:\n");
-    for (int i = 0; i < size2; i++) 
-    {
-        scanf("%d", &arr2[i]);
-    }
-
-    int choice;
-    printf("Choose sorting order:\n1. Ascending\n2. Descending\n");
-    scanf("%d", &choice);
-
-    if (choice == 1) 
-    {
-        sortAscending(arr1, size1);
-        printf("First array sorted in ascending order:\n");
-    } else if (choice == 2) 
-    {
-        sortDescending(arr1, size1);
-        printf("First array sorted in descending order:\n");
-    } else
-    {
-        printf("Invalid choice! No sorting applied to the first array.\n");
-    }
+    int a[100],b[100],i,j,row,col,choice;
     
-    for (int i = 0; i < size1; i++) 
+    printf("\n enter 1.for the a and b array in ascending order  ");
+    printf("\n enter 2.for the a and b array in descending order ");
+    printf("\n enter 3.for the a array in ascending order and b array in descending order  ");
+    printf("\n enter 4.for the a array in descending order and b array in ascending order  ");
+    printf("\n");
+    printf("\n");
+    printf("Enter your choice = ");
+    scanf("%d",&choice);
+    switch(choice)
     {
-        printf("%d ", arr1[i]);
+    case 1:
+        {
+         printf("\nEnter the size of an a array = ");
+         scanf("%d",&row);
+         printf("\nEnter the size of an b array = ");
+         scanf("%d",&col);
+
+    for(i=0;i<row;i++)
+    {
+        printf("\nENTER THE ELEMENTS OF an a array in a[%d]= ",i);
+        scanf("%d",&a[i]);
+    }
+
+    for(i=0;i<col;i++)
+    {
+        printf("\nENTER THE ELEMENTS OF an b array in b[%d]= ",i);
+        scanf("%d",&b[i]);
+    }
+    printf("\nThis is the original a array =");
+    for(i=0;i<row;i++)
+    {
+        printf("%d ",a[i]);
+    }
+
+      printf("\nThis is the original b array =");
+    for(i=0;i<col;i++)
+    {
+        printf("%d ",b[i]);
+    }
+    printf("\n");
+    for(i=0;i<row;i++)
+    {
+        for(j=i+1;j<row;j++)
+        {
+            if(a[i]>a[j])
+            {
+                a[i]=a[i]+a[j];
+                a[j]=a[i]-a[j];
+                a[i]=a[i]-a[j];
+            }
+        }
+
+    }
+    for(i=0;i<col;i++)
+    {
+        for(j=i+1;j<col;j++)
+        {
+            if(b[i]>b[j])
+            {
+                b[i]=b[i]+b[j];
+                b[j]=b[i]-b[j];
+                b[i]=b[i]-b[j];
+            }
+        }
+
+    }
+    printf("\nThe a array in ascending order = ");
+    for(i=0;i<row;i++)
+    {
+        printf("%d ",a[i]);
+    }
+    printf("\nThe b array in ascending order = ");
+    for(i=0;i<col;i++)
+    {
+        printf("%d ",b[i]);
+    }
+        }
+    break;
+
+    case 2:
+        {
+         printf("\nEnter the size of an a array = ");
+         scanf("%d",&row);
+         printf("\nEnter the size of an b array = ");
+         scanf("%d",&col);
+
+    for(i=0;i<row;i++)
+    {
+        printf("\nENTER THE ELEMENTS OF an a array in a[%d]= ",i);
+        scanf("%d",&a[i]);
+    }
+
+    for(i=0;i<col;i++)
+    {
+        printf("\nENTER THE ELEMENTS OF an b array in b[%d]= ",i);
+        scanf("%d",&b[i]);
+    }
+    printf("\nThis is the original a array =");
+    for(i=0;i<row;i++)
+    {
+        printf("%d ",a[i]);
+    }
+
+      printf("\nThis is the original b array =");
+    for(i=0;i<col;i++)
+    {
+        printf("%d ",b[i]);
+    }
+    printf("\n");
+    for(i=0;i<row;i++)
+    {
+        for(j=i+1;j<row;j++)
+        {
+            if(a[i]<a[j])
+            {
+                a[i]=a[i]+a[j];
+                a[j]=a[i]-a[j];
+                a[i]=a[i]-a[j];
+            }
+        }
+
+    }
+    for(i=0;i<col;i++)
+    {
+        for(j=i+1;j<col;j++)
+        {
+            if(b[i]<b[j])
+            {
+                b[i]=b[i]+b[j];
+                b[j]=b[i]-b[j];
+                b[i]=b[i]-b[j];
+            }
+        }
+
+    }
+    printf("\nThe a array in descending order = ");
+    for(i=0;i<row;i++)
+    {
+        printf("%d ",a[i]);
+    }
+    printf("\nThe b array in descending order = ");
+    for(i=0;i<col;i++)
+    {
+        printf("%d ",b[i]);
+    }
+        }
+    break;
+    case 3:
+        {
+             printf("\nEnter the size of an a array = ");
+         scanf("%d",&row);
+         printf("\nEnter the size of an b array = ");
+         scanf("%d",&col);
+
+    for(i=0;i<row;i++)
+    {
+        printf("\nENTER THE ELEMENTS OF an a array in a[%d]= ",i);
+        scanf("%d",&a[i]);
+    }
+
+    for(i=0;i<col;i++)
+    {
+        printf("\nENTER THE ELEMENTS OF an b array in b[%d]= ",i);
+        scanf("%d",&b[i]);
+    }
+    printf("\nThis is the original a array =");
+    for(i=0;i<row;i++)
+    {
+        printf("%d ",a[i]);
+    }
+
+      printf("\nThis is the original b array =");
+    for(i=0;i<col;i++)
+    {
+        printf("%d ",b[i]);
     }
     printf("\n");
 
-    if (choice == 1)
+    for(i=0;i<row;i++)
     {
-        sortAscending(arr2, size2);
-        printf("Second array sorted in ascending order:\n");
-    } else if (choice == 2) 
-    {
-        sortDescending(arr2, size2);
-        printf("Second array sorted in descending order:\n");
-    } else 
-    {
-        printf("Invalid choice! No sorting applied to the second array.\n");
+        for(j=i+1;j<row;j++)
+        {
+            if(a[i]>a[j])
+            {
+                a[i]=a[i]+a[j];
+                a[j]=a[i]-a[j];
+                a[i]=a[i]-a[j];
+            }
+        }
+
     }
-    
-    for (int i = 0; i < size2; i++) 
+    for(i=0;i<col;i++)
     {
-        printf("%d ", arr2[i]);
+        for(j=i+1;j<col;j++)
+        {
+            if(b[i]<b[j])
+            {
+                b[i]=b[i]+b[j];
+                b[j]=b[i]-b[j];
+                b[i]=b[i]-b[j];
+            }
+        }
+    }
+      printf("\nThe a array in ascending order = ");
+    for(i=0;i<row;i++)
+    {
+        printf("%d ",a[i]);
+    }
+    printf("\nThe b array in descending order = ");
+    for(i=0;i<col;i++)
+    {
+        printf("%d ",b[i]);
+    }
+        }
+    break;
+    case 4:
+        {
+         printf("\nEnter the size of an a array = ");
+         scanf("%d",&row);
+         printf("\nEnter the size of an b array = ");
+         scanf("%d",&col);
+
+    for(i=0;i<row;i++)
+    {
+        printf("\nENTER THE ELEMENTS OF an a array in a[%d]= ",i);
+        scanf("%d",&a[i]);
+    }
+
+    for(i=0;i<col;i++)
+    {
+        printf("\nENTER THE ELEMENTS OF an b array in b[%d]= ",i);
+        scanf("%d",&b[i]);
+    }
+    printf("\nThis is the original a array =");
+    for(i=0;i<row;i++)
+    {
+        printf("%d ",a[i]);
+    }
+
+      printf("\nThis is the original b array =");
+    for(i=0;i<col;i++)
+    {
+        printf("%d ",b[i]);
     }
     printf("\n");
-
-    return 0;
+        for(i=0;i<row;i++)
+    {
+        for(j=i+1;j<row;j++)
+        {
+            if(a[i]<a[j])
+            {
+                a[i]=a[i]+a[j];
+                a[j]=a[i]-a[j];
+                a[i]=a[i]-a[j];
+            }
+        }
+    }
+    for(i=0;i<col;i++)
+    {
+        for(j=i+1;j<col;j++)
+        {
+            if(b[i]>b[j])
+            {
+                b[i]=b[i]+b[j];
+                b[j]=b[i]-b[j];
+                b[i]=b[i]-b[j];
+            }
+        }
+    }
+    printf("\nThe a array in descending order = ");
+    for(i=0;i<row;i++)
+    {
+        printf("%d ",a[i]);
+    }
+    printf("\nThe b array in ascending order = ");
+    for(i=0;i<col;i++)
+    {
+        printf("%d ",b[i]);
+    }
+        }
+    break;
+    default:
+        {
+            printf("\n invalid number! please enter valid number ");
+        }
+    }
 }
 
