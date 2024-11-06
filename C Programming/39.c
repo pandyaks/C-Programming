@@ -1,52 +1,35 @@
-#include <stdio.h>
-#include <string.h>
-void reverseString(char *str) 
+//	WAP to reverse a string and check that the string is palindrome or not
+#include<stdio.h>
+void main()
 {
-    int length = strlen(str);
-    char temp;
-    
-    for (int i = 0; i < length / 2; i++) 
+    char str[1000],str2[1000];
+    int i,count=0;
+    printf("\nENTER ANY STRING = ");
+    gets(str);
+    printf("\nTHIS IS THE ORIGINAL STRING =%s",str);
+    printf("\n");
+    for(i=0;str[i]!='\0';i++)
     {
-        temp = str[i];
-        str[i] = str[length - i - 1];
-        str[length - i - 1] = temp;
+        count++;
     }
-}
-int isPalindrome(const char *str) 
-{
-    int length = strlen(str);
-    
-    for (int i = 0; i < length / 2; i++) 
+    for(i=0;str[i]!='\0';i++)
     {
-        if (str[i] != str[length - i - 1]) 
+        str2[count-1]=str[i];
+        count--;
+    }
+    printf("\nReversed string = ");
+    for(i=0;str[i]!='\0';i++)
+    {
+        printf("%c",str2[i]);
+    }
+    printf("\n");
+     if(str[i]==str2[i])
+
         {
-            return 0;  
+        printf("\nThis string is not palindrome");
         }
-    }
-    return 1;
-}
-
-int main() 
-{
-    char str[100];
-
-    printf("Enter a string: ");
-    fgets(str, sizeof(str), stdin);
-    
-    str[strcspn(str, "\n")] = '\0';
-
-    char reversed[100];
-    strcpy(reversed, str);  
-    reverseString(reversed);
-    if (isPalindrome(str)) 
-    {
-        printf("\nThe string  is a palindrome %s", str);
-    } else 
-    {
-        printf("\nThe string is not a palindrome %s", str);
-    }
-
-    printf("\nReversed string: %s", reversed);
-    
-    return 0;
+        else if(str[i]!=str2[i])
+        {
+          printf("\nThe string is palindrome");
+        }
 }
