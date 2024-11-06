@@ -1,90 +1,118 @@
-#include <stdio.h>
-#define MAX 10
-void inputMatrix(int matrix[MAX][MAX], int rows, int cols) 
+//	WAP to make addition, Subtraction and multiplication of two matrix using 2-D Array  
+#include<stdio.h>
+int main()
 {
-    printf("Enter elements of the matrix:\n");
-    for (int i = 0; i < rows; i++) 
-    {
-        for (int j = 0; j < cols; j++) 
-        {
-            scanf("%d", &matrix[i][j]);
-        }
-    }
-}
-
-void displayMatrix(int matrix[MAX][MAX], int rows, int cols) {
-    printf("The matrix is:\n");
-    for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < cols; j++) {
-            printf("%d ", matrix[i][j]);
-        }
-        printf("\n");
-    }
-}
-
-void addMatrices(int a[MAX][MAX], int b[MAX][MAX], int result[MAX][MAX], int rows, int cols) {
-    for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < cols; j++) {
-            result[i][j] = a[i][j] + b[i][j];
-        }
-    }
-}
-
-void subtractMatrices(int a[MAX][MAX], int b[MAX][MAX], int result[MAX][MAX], int rows, int cols) {
-    for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < cols; j++) {
-            result[i][j] = a[i][j] - b[i][j];
-        }
-    }
-}
-
-void multiplyMatrices(int a[MAX][MAX], int b[MAX][MAX], int result[MAX][MAX], int rowsA, int colsA, int colsB) {
-    for (int i = 0; i < rowsA; i++) {
-        for (int j = 0; j < colsB; j++) {
-            result[i][j] = 0;
-            for (int k = 0; k < colsA; k++) {
-                result[i][j] += a[i][k] * b[k][j];
-            }
-        }
-    }
-}
-
-int main() 
-{
-    int rowsA, colsA, rowsB, colsB;
-    int a[MAX][MAX], b[MAX][MAX], result[MAX][MAX];
-
-    printf("Enter rows and columns for first matrix: ");
-    scanf("%d %d", &rowsA, &colsA);
-    inputMatrix(a, rowsA, colsA);
-    
-    printf("Enter rows and columns for second matrix: ");
-    scanf("%d %d", &rowsB, &colsB);
-    inputMatrix(b, rowsB, colsB);
-
-    if (rowsA == rowsB && colsA == colsB) 
-    {
-        addMatrices(a, b, result, rowsA, colsA);
-        printf("\nAddition of matrices:\n");
-        displayMatrix(result, rowsA, colsA);
-        
-        subtractMatrices(a, b, result, rowsA, colsA);
-        printf("\nSubtraction of matrices:\n");
-        displayMatrix(result, rowsA, colsA);
-    } else 
-    {
-        printf("\ntheir dimensions do not match");
-    }
-
-    if (colsA == rowsB) 
-    {
-        multiplyMatrices(a, b, result, rowsA, colsA, colsB);
-        printf("\nMultiplication of matrices ");
-        displayMatrix(result, rowsA, colsB);
-    } else 
-    {
-        printf("\n invalue input");
-    }
-
-    return 0;
+	int size,i,j,choice,k;
+	int a[100][100],b[100][100],ans[100][100];
+	
+	printf("\nEnter the size of an array = ");
+	scanf("%d",&size);
+	
+	//input
+	for(i=0;i<size;i++)
+	{
+		for(j=0;j<size;j++)
+		{
+			printf("\nEnter the element in a[%d][%d] = ",i,j);
+			scanf("%d",&a[i][j]);
+		}
+	}
+	for(i=0;i<size;i++)
+	{
+		for(j=0;j<size;j++)
+		{
+			printf("\nEnter the element in b[%d][%d] = ",i,j);
+			scanf("%d",&b[i][j]);
+		}
+	}
+	
+	//output
+	printf("\nArray a := \n");
+	for(i=0;i<size;i++)
+	{
+		for(j=0;j<size;j++)
+		{
+			printf("%d ",a[i][j]);
+		}
+		printf("\n");
+	}
+	printf("\nArray b := \n");
+	for(i=0;i<size;i++)
+	{
+		for(j=0;j<size;j++)
+		{
+			printf("%d ",b[i][j]);
+		}
+		printf("\n");
+	}
+	
+	printf("\n1.Addition");
+	printf("\n2.Subtraction");
+	printf("\n3.Multiplication");
+	printf("\nEnter the choice = ");
+	scanf("%d",&choice);
+	
+	switch(choice)
+	{
+		case 1:
+			for(i=0;i<size;i++)
+			{
+				for(j=0;j<size;j++)
+				{
+					ans[i][j] = a[i][j] + b[i][j];
+				}
+			}
+			printf("\nThe addition is := \n");
+			for(i=0;i<size;i++)
+			{
+				for(j=0;j<size;j++)
+				{
+					printf("%d ",ans[i][j]);
+				}
+				printf("\n");
+			}
+		break;
+		case 2:
+			for(i=0;i<size;i++)
+			{
+				for(j=0;j<size;j++)
+				{
+					ans[i][j] = a[i][j] - b[i][j];
+				}
+			}
+			printf("\nThe subtraction is := \n");
+			for(i=0;i<size;i++)
+			{
+				for(j=0;j<size;j++)
+				{
+					printf("%d ",ans[i][j]);
+				}
+				printf("\n");
+			}
+		break;
+		case 3:
+			for(i=0;i<size;i++) //row 
+			{
+				for(j=0;j<size;j++) //col
+				{
+					ans[i][j] = 0;
+					for(k=0;k<size;k++) //col
+					{
+						ans[i][j] = ans[i][j] + (a[i][k] * b[k][j]);
+					}
+				}
+			}
+			printf("\nMultiplication is := \n");
+			for(i=0;i<size;i++)
+			{
+				for(j=0;j<size;j++)
+				{
+					printf("%d ",ans[i][j]);
+				}
+				printf("\n");
+			}
+		break;
+	}
+	
+	return 0;
 }
